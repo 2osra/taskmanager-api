@@ -13,3 +13,6 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
+
+ALLOWED_HOSTS = ['*']
+SECRET_KEY = 'django-insecure-railway-deploy-key-123456789'
