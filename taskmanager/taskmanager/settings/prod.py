@@ -2,6 +2,8 @@ from .base import *
 import os
 
 DEBUG = False
+ALLOWED_HOSTS = ['*']
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-railway-deploy-key-123456789')
 
 DATABASES = {
     'default': {
@@ -14,5 +16,5 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = ['*']
-SECRET_KEY = 'django-insecure-railway-deploy-key-123456789'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
