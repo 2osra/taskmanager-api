@@ -1,0 +1,63 @@
+ERROR 2026-02-26 08:35:43,014 log Internal Server Error: /api/auth/register/
+Traceback (most recent call last):
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/authentication/views.py", line 27, in post
+    user = serializer.save()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/rest_framework/serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/authentication/serializers.py", line 27, in create
+    email=validated_data['email'],
+          ~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'email'
+ERROR 2026-02-26 08:35:43,016 log "POST /api/auth/register/ HTTP/1.1" 500 112538
+ERROR 2026-02-26 09:12:32,251 log Internal Server Error: /api/tasks/1
+Traceback (most recent call last):
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PUT, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PUT data. Change your form to point to localhost:8000/api/tasks/1/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-26 09:12:32,253 log "PUT /api/tasks/1 HTTP/1.1" 500 80047
+ERROR 2026-02-26 09:38:36,610 log Internal Server Error: /api/tasks
+Traceback (most recent call last):
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+  File "/home/control/Downloads/taskmanager_api/taskmanager/venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/tasks/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-26 09:38:36,611 log "POST /api/tasks HTTP/1.1" 500 80030
