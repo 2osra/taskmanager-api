@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
     'authentication',
     'projects',
     'tasks',
@@ -26,6 +27,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -75,17 +77,17 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 STATIC_URL = 'static/'
+CORS_ALLOW_ALL_ORIGINS = True
 
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {'verbose': {'format': '{levelname} {asctime} {module} {message}', 'style': '{'}},
     'handlers': {
-        'file': {'level': 'ERROR', 'class': 'logging.FileHandler', 'filename': BASE_DIR / 'logs/errors.log', 'formatter': 'verbose'},
         'console': {'class': 'logging.StreamHandler', 'formatter': 'verbose'},
     },
     'loggers': {
-        'django': {'handlers': ['file', 'console'], 'level': 'ERROR', 'propagate': True},
-        'taskmanager': {'handlers': ['file', 'console'], 'level': 'INFO', 'propagate': False},
+        'django': {'handlers': ['console'], 'level': 'ERROR', 'propagate': True},
+        'taskmanager': {'handlers': ['console'], 'level': 'INFO', 'propagate': False},
     },
 }
