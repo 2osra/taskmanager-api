@@ -3,7 +3,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "gunicorn taskmanager.wsgi",
+    "startCommand": "gunicorn taskmanager.wsgi --chdir /app",
     "restartPolicyType": "ON_FAILURE"
   }
 }
